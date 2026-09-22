@@ -1,0 +1,328 @@
+/* Add your CSS here */
+/* Modern fonts: Inter for body text and DM Mono for a coding style. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --intel-blue: #0071c5;
+  --dark-blue: #003c71;
+  --light-blue: #e4f5ff;
+  --page-blue: #f3faff;
+  --green: #b5f36d;
+  --text: #0b2239;
+  --white: #ffffff;
+  --mono-font: "DM Mono", monospace;
+  --main-font: "Inter", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--page-blue);
+  color: var(--text);
+  font-family: var(--main-font);
+}
+
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 20px;
+  padding: 10px 15px;
+  background: white;
+  color: var(--dark-blue);
+  z-index: 10;
+}
+
+.skip-link:focus { top: 20px; }
+
+/* Hero section */
+.hero {
+  min-height: 700px;
+  background: linear-gradient(135deg, var(--intel-blue), var(--dark-blue));
+  color: var(--white);
+  padding: 0 7%;
+}
+
+.navbar {
+  height: 85px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logo { width: 110px; height: auto; }
+
+.navbar p,
+.small-label,
+.instructions,
+footer p {
+  font-family: var(--mono-font);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.hero-content {
+  max-width: 850px;
+  padding-top: 130px;
+}
+
+.small-label {
+  margin-bottom: 20px;
+  text-transform: lowercase;
+}
+
+.small-label::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  margin: 0 10px 4px 0;
+  background-color: var(--green);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(55px, 8vw, 110px);
+  line-height: 0.9;
+  letter-spacing: -6px;
+  font-weight: 600;
+}
+
+h1 span { color: var(--light-blue); font-weight: 400; }
+
+.hero-description {
+  max-width: 600px;
+  margin: 30px 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.hero-link {
+  color: white;
+  font-family: var(--mono-font);
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid white;
+  padding-bottom: 6px;
+}
+
+/* Timeline heading */
+.timeline-section { padding: 100px 0 80px; }
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin: 0 7% 50px;
+}
+
+.blue-label { color: var(--intel-blue); }
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--dark-blue);
+  font-size: clamp(48px, 7vw, 85px);
+  letter-spacing: -5px;
+}
+
+.section-heading > p {
+  max-width: 500px;
+  margin: 0;
+  color: #486982;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.instructions {
+  margin: 0 7% 15px;
+  color: #59778e;
+}
+
+/* Flexbox creates the horizontal timeline. */
+.timeline-container {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  padding: 25px 7% 45px;
+  scroll-snap-type: x mandatory; /* Extra credit: scroll snap */
+}
+
+.timeline-card {
+  flex: 0 0 330px;
+  min-height: 455px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border: 1px solid #c9e2f1;
+  border-radius: 6px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  box-shadow: 0 10px 25px rgba(0, 60, 113, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Extra credit: transform and shadow on hover */
+.timeline-card:hover,
+.timeline-card:focus {
+  transform: translateY(-12px);
+  box-shadow: 0 22px 40px rgba(0, 60, 113, 0.2);
+  outline: 2px solid var(--intel-blue);
+}
+
+.card-number {
+  padding: 15px 18px;
+  border-bottom: 1px solid #dcebf4;
+  color: #668397;
+  font-family: var(--mono-font);
+  font-size: 12px;
+}
+
+.card-image {
+  height: 175px;
+  margin: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--light-blue), #bce7ff);
+  color: var(--intel-blue);
+}
+
+.card-image span {
+  font-family: var(--mono-font);
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.green-card .card-image {
+  background: linear-gradient(135deg, #edffdc, #d2f7ad);
+  color: #3f6c13;
+}
+
+.final-card { background-color: var(--dark-blue); color: white; }
+.final-card .card-image { background: var(--intel-blue); color: white; }
+.final-card .card-number { color: #b9d9ed; border-color: rgba(255, 255, 255, 0.2); }
+
+.card-text {
+  margin-top: auto;
+  padding: 5px 22px 24px;
+}
+
+.year {
+  margin: 0 0 8px;
+  color: var(--intel-blue);
+  font-family: var(--mono-font);
+  font-size: 16px;
+}
+
+.final-card .year { color: #5cddff; }
+
+.card-text h3 {
+  margin: 0;
+  font-size: 22px;
+  text-transform: lowercase;
+}
+
+/* Details appear when a card is hovered or focused. */
+.details {
+  max-height: 0;
+  margin: 0;
+  opacity: 0;
+  overflow: hidden;
+  color: #486982;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+}
+
+.final-card .details { color: #c3ddec; }
+
+.timeline-card:hover .details,
+.timeline-card:focus .details {
+  max-height: 180px;
+  margin-top: 14px;
+  opacity: 1;
+}
+
+/* Footer */
+footer {
+  min-height: 260px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  padding: 60px 7%;
+  background-color: var(--dark-blue);
+  color: white;
+}
+
+footer h2 {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 60px);
+  letter-spacing: -3px;
+}
+
+footer h2 span { color: var(--green); }
+
+footer p {
+  max-width: 300px;
+  margin: 0;
+  color: #a9c8dd;
+  text-align: right;
+  line-height: 1.6;
+}
+
+/* Mobile: the cards stack vertically instead of scrolling sideways. */
+@media (max-width: 700px) {
+  .hero { min-height: 670px; padding: 0 22px; }
+  .navbar { height: 72px; }
+  .navbar p { font-size: 11px; }
+  .logo { width: 92px; }
+  .hero-content { padding-top: 110px; }
+  h1 { letter-spacing: -4px; }
+
+  .section-heading {
+    display: block;
+    margin: 0 22px 35px;
+  }
+
+  .section-heading > p { margin-top: 25px; }
+  .instructions { margin: 0 22px 18px; }
+
+  .timeline-container {
+    flex-direction: column;
+    overflow-x: visible;
+    padding: 0 22px 40px;
+    scroll-snap-type: none;
+  }
+
+  .timeline-card {
+    flex: auto;
+    width: 100%;
+    min-height: auto;
+  }
+
+  /* Details stay visible on touch screens because phones do not hover. */
+  .details {
+    max-height: 200px;
+    margin-top: 14px;
+    opacity: 1;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  footer p { text-align: left; }
+}
+
+/* Accessibility: remove movement if the visitor prefers less animation. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .timeline-card, .details { transition: none; }
+}
